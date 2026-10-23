@@ -1,1 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#3d0c1f">
+<title>Untuk Sayangg 🤍</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;1,400;1,600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--wine:#3d0c1f;--burg:#7b1e3a;--blush:#f8dde2;--rose:#e48da3;--lamp:#f5d08a;--serif:'Fraunces',Georgia,serif;--sans:'Nunito',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}
+html,body{min-height:100%;background:radial-gradient(120% 90% at 50% 0,#6a1a38 0,var(--wine) 60%) fixed;color:var(--blush);font:16px/1.6 var(--sans);overflow-x:hidden}
+.scene{display:none;min-height:100dvh;padding:calc(1.5rem + env(safe-area-inset-top)) 1.25rem calc(2rem + env(safe-area-inset-bottom));flex-direction:column;align-items:center;justify-content:center;gap:1rem;text-align:center;max-width:30rem;margin:0 auto}
+.scene.on{display:flex}
+h1,h2{font:italic 600 1.9rem/1.25 var(--serif);color:#fff}
+h1{font-size:2.2rem}
+.sub{opacity:.8}
+.card{background:rgba(248,221,226,.08);border:1px solid rgba(245,208,138,.35);border-radius:1.5rem;padding:1.5rem;width:100%}
+.btn{background:var(--lamp);color:var(--wine);border:0;border-radius:99px;padding:.85rem 1.8rem;font:700 1rem var(--sans);cursor:pointer;min-height:48px}
+.btn:active{transform:scale(.97)}
+.btn.ghost{background:none;color:var(--blush);border:1px solid var(--rose)}
+button:focus-visible{outline:3px solid var(--lamp);outline-offset:3px}
+.cd{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-top:1rem}
+.cd b{display:block;font:600 1.8rem var(--serif);color:var(--lamp)}
+.cd small{opacity:.75}
+/* telepon */
+.av{width:7rem;height:7rem;border-radius:50%;background:var(--burg);display:grid;place-items:center;font-size:3.2rem;border:3px solid var(--lamp)}
+.ring .av{animation:ring 1.2s infinite}
+@keyframes ring{0%,100%{box-shadow:0 0 0 0 rgba(245,208,138,.6)}50%{box-shadow:0 0 0 18px rgba(245,208,138,0)}}
+.ans{width:4.5rem;height:4.5rem;border-radius:50%;border:0;background:#3fbf6a;font-size:1.8rem;cursor:pointer;margin-top:1.5rem;animation:ring 1.2s infinite}
+.bub{background:var(--blush);color:var(--wine);border-radius:1.2rem 1.2rem 1.2rem .3rem;padding:1rem 1.2rem;text-align:left}
+/* chapter */
+#chat{display:flex;flex-direction:column;gap:.9rem;width:100%;text-align:left}
+.msg{background:var(--blush);color:var(--wine);border-radius:1.2rem 1.2rem 1.2rem .3rem;padding:1rem;animation:pop .45s}
+.msg small{color:var(--burg);font-weight:700}
+.msg h3{font:italic 600 1.25rem var(--serif);margin:.1rem 0 .4rem}
+.msg img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:.9rem;margin-top:.7rem;background:var(--rose)}
+@keyframes pop{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.fb{display:grid;place-items:center;width:100%;height:100%;min-height:4rem;font-size:2rem;background:var(--rose);border-radius:inherit}
+/* kucing */
+#spots,#gal{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;width:100%}
+.spot{aspect-ratio:1;border-radius:1.2rem;border:1px dashed var(--lamp);background:rgba(248,221,226,.08);font-size:2.6rem;cursor:pointer;overflow:hidden;padding:0}
+.spot.f{border-style:solid;background:var(--burg)}
+.spot img{width:100%;height:100%;object-fit:cover}
+#gal button{aspect-ratio:1;border:0;padding:0;border-radius:.8rem;overflow:hidden;background:var(--burg);cursor:pointer}
+#gal img{width:100%;height:100%;object-fit:cover}
+/* tiket */
+#tk{display:flex;flex-direction:column;gap:.8rem;width:100%}
+.tk{background:var(--lamp);color:var(--wine);padding:1rem 1.2rem;text-align:left;border-radius:.6rem;position:relative;border-left:6px dotted var(--burg)}
+.tk h3{font:italic 600 1.15rem var(--serif)}
+/* surat */
+#lt{text-align:left;display:flex;flex-direction:column;gap:1rem;width:100%;font-family:var(--serif);font-size:1.05rem;line-height:1.7}
+#lt p{animation:pop .8s}
+#lt p:first-child,#lt p:last-of-type{font-style:italic}
+#sg{font:italic 1rem var(--serif);color:var(--lamp);text-align:right;width:100%}
+/* modal */
+#md{position:fixed;inset:0;background:rgba(30,4,14,.9);display:none;align-items:center;justify-content:center;padding:1.2rem;z-index:50}
+#md.on{display:flex}
+.box{background:var(--blush);color:var(--wine);border-radius:1.5rem;padding:1.3rem;max-width:24rem;width:100%;text-align:center;max-height:90dvh;overflow:auto}
+.box img.c{width:9rem;height:9rem;border-radius:50%;object-fit:cover;border:4px solid var(--burg);margin:0 auto .6rem}
+.box img.w{width:100%;max-height:60dvh;object-fit:contain;border-radius:.8rem}
+.box h3{font:italic 600 1.4rem var(--serif)}
+.row{display:flex;gap:.6rem;overflow-x:auto;scroll-snap-type:x mandatory}
+.row img{flex:0 0 100%;scroll-snap-align:center;border-radius:.8rem;aspect-ratio:3/4;object-fit:cover}
+#mu{position:fixed;top:calc(.8rem + env(safe-area-inset-top));right:.8rem;z-index:40;width:2.8rem;height:2.8rem;border-radius:50%;border:1px solid var(--lamp);background:rgba(61,12,31,.8);color:var(--lamp);font-size:1.2rem;display:none;cursor:pointer}
+#pv{position:fixed;bottom:.5rem;left:.5rem;background:#c1121f;color:#fff;font:700 .75rem monospace;padding:.3rem .6rem;border-radius:.4rem;z-index:60;display:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<button id="mu" aria-label="Putar atau jeda musik">♪</button>
+<div id="pv"></div>
+<main>
+<section class="scene" id="lock"><div class="card"><div style="font-size:3rem">🔒</div><h2>Sabar ya…</h2><p id="lp"></p><div class="cd" id="cd"></div></div></section>
 
+<section class="scene ring" id="call"><div class="av" id="av">🐱</div><h2 id="cn"></h2><p class="sub" id="cs">panggilan masuk…</p><div class="bub" id="cb" hidden></div><button class="ans" id="ans" aria-label="Angkat telepon">📞</button><button class="btn" id="go1" hidden>Lanjut</button></section>
+
+<section class="scene" id="intro"><h1 id="it"></h1><p class="sub" id="is"></p><div class="bub" id="ip"></div><button class="btn" data-go="chapters">Mulai pelan-pelan</button></section>
+
+<section class="scene" id="chapters" style="justify-content:flex-start"><h2>Enam Tahun</h2><div id="chat"></div><button class="btn" id="cbtn"></button></section>
+
+<section class="scene" id="cats"><h2 id="kt"></h2><p class="sub" id="kp"></p><div id="spots"></div><p id="ks" style="color:var(--lamp)"></p><button class="btn" id="kb" data-go="gallery" hidden>Lanjut</button></section>
+
+<section class="scene" id="gallery" style="justify-content:flex-start"><h2 id="gt"></h2><div id="gal"></div><button class="btn" data-go="tickets">Lanjut</button></section>
+
+<section class="scene" id="tickets"><h2 id="tt"></h2><p class="sub" id="ts"></p><div id="tk"></div><p class="sub" id="tc"></p><button class="btn" data-go="letter">Lanjut</button></section>
+
+<section class="scene" id="letter" style="justify-content:flex-start"><h2 id="lh"></h2><div id="lt"></div><p id="sg" hidden></p><button class="btn ghost" id="skip">Lewati</button><button class="btn" id="again" hidden>Putar ulang 🔄</button></section>
+</main>
+<div id="md"><div class="box" id="mb"></div></div>
+<script src="js/data.js"></script>
+<script>
+const $=s=>document.querySelector(s),P=new URLSearchParams(location.search),PV=P.get('preview')==='1';
+const clean=(s,fb='')=>(!s||(!PV&&s.startsWith('TODO:')))?fb:s;
+const img=(src,cls='')=>`<img src="${src}" class="${cls}" alt="" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fb',textContent:'🐱'}))">`;
+let audio=null;
+function go(id){document.querySelectorAll('.scene').forEach(e=>e.classList.toggle('on',e.id===id));scrollTo(0,0);(init[id]||(()=>{}))()}
+document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>go(b.dataset.go));
+function modal(html){$('#mb').innerHTML=html;$('#md').classList.add('on')}
+$('#md').onclick=e=>{if(e.target.id==='md')$('#md').classList.remove('on')};
+function music(){if(!audio){audio=new Audio(DATA.musik.file);audio.loop=true;audio.volume=DATA.musik.volume}audio.play().catch(()=>{});$('#mu').style.display='block'}
+$('#mu').onclick=()=>{if(!audio)return;audio.paused?audio.play().catch(()=>{}):audio.pause();$('#mu').style.opacity=audio.paused?.5:1};
+
+const init={
+ lock(){$('#lp').textContent=DATA.lockPesan;const T=new Date(DATA.unlock);const t=()=>{const d=T-new Date();if(d<=0){go('call');return}
+  const v=[[86400000,'hari'],[3600000,'jam'],[60000,'menit'],[1000,'detik']];let r=d;
+  $('#cd').innerHTML=v.map(([m,l])=>{const n=Math.floor(r/m);r%=m;return`<div><b>${n}</b><small>${l}</small></div>`}).join('');setTimeout(t,1000)};t()},
+ call(){const c=DATA.telepon;$('#cn').textContent=`${c.nama}${c.emojiAwal}`;$('#cs').textContent='panggilan masuk…';$('#cb').hidden=true;$('#go1').hidden=true;$('#ans').hidden=false;$('#call').classList.add('ring')
+  $('#ans').onclick=()=>{music();$('#ans').hidden=true;$('#call').classList.remove('ring');$('#cn').textContent=`${c.nama}${c.emojiAkhir}`;$('#cs').textContent='tersambung';$('#cb').textContent=c.teks;$('#cb').hidden=false;$('#go1').hidden=false};
+  $('#go1').onclick=()=>go('intro')},
+ intro(){const i=DATA.intro;$('#it').textContent=i.judul;$('#is').textContent=i.sub;$('#ip').textContent=i.pesan;let n=0,t0=0;
+  $('#it').onclick=()=>{const now=Date.now();if(now-t0>3000)n=0;if(!n)t0=now;if(++n>=5){n=0;egg()}}},
+ chapters(){const L=DATA.chapters.filter(c=>PV||!(c.teks||'').startsWith('TODO:'));let k=0;$('#chat').innerHTML='';const b=$('#cbtn');
+  const step=()=>{if(k>=L.length){go('cats');return}const c=L[k++];const d=document.createElement('div');d.className='msg';
+   d.innerHTML=`<small>${clean(c.tanggal)}</small><h3>${c.judul}</h3><p>${clean(c.teks)}</p>${c.foto?img(c.foto):''}`;$('#chat').append(d);d.scrollIntoView({behavior:'smooth',block:'center'});b.textContent=k>=L.length?'Lanjut 💕':'Lanjut cerita'};
+  b.onclick=step;if(!L.length){go('cats');return}b.textContent='Mulai cerita';b.onclick=()=>{b.onclick=step;step()}},
+ cats(){const K=DATA.kucing;$('#kt').textContent=K.judul;$('#kp').textContent=K.petunjuk;$('#ks').textContent='';$('#kb').hidden=true;let f=0;const S=$('#spots');S.innerHTML='';
+  K.daftar.forEach((c,i)=>{const b=document.createElement('button');b.className='spot';b.textContent=K.tempat[i];b.setAttribute('aria-label','Tempat sembunyi '+(i+1));
+   b.onclick=()=>{modal(`${img(c.foto,'c')}<h3>${c.nama}</h3><p>${c.pesan}</p><button class="btn" style="margin-top:1rem" onclick="$('#md').classList.remove('on')">Oke 🐱</button>`);
+    if(!b.classList.contains('f')){b.classList.add('f');b.innerHTML=img(c.foto);f++;$('#ks').textContent=`${f} dari ${K.daftar.length} kucing ketemu`;
+     if(f===K.daftar.length){$('#ks').textContent=K.selesai;$('#kb').hidden=false}}};S.append(b)})},
+ gallery(){const G=DATA.galeri;$('#gt').textContent=G.judul;$('#gal').innerHTML='';
+  G.photos.forEach(p=>{const b=document.createElement('button');b.innerHTML=img(p.src);b.setAttribute('aria-label','Buka foto');
+   b.onclick=()=>modal(`${img(p.src,'w')}<p style="margin-top:.7rem">${clean(p.caption)}</p>`);$('#gal').append(b)})},
+ tickets(){const T=DATA.tiket;$('#tt').textContent=T.judul;$('#ts').textContent=T.sub;$('#tc').textContent=T.catatan;
+  $('#tk').innerHTML=T.daftar.map(t=>`<div class="tk"><h3>${t.judul}</h3><p>${t.isi}</p></div>`).join('')},
+ letter(){const S=DATA.surat,L=S.paragraf.filter(p=>PV||!p.startsWith('TODO:'));$('#lh').textContent=S.judul;$('#lt').innerHTML='';$('#sg').hidden=true;$('#again').hidden=true;$('#skip').hidden=false;let i=0,tm;
+  const end=()=>{clearTimeout(tm);while(i<L.length)add();$('#sg').textContent=S.tandaTangan;$('#sg').hidden=false;$('#skip').hidden=true;$('#again').hidden=false};
+  const add=()=>{const p=document.createElement('p');p.textContent=L[i++];$('#lt').append(p);p.scrollIntoView({behavior:'smooth',block:'end'})};
+  const nx=()=>{if(i>=L.length){end();return}add();tm=setTimeout(nx,Math.max(2800,L[i-1].length*30))};
+  $('#skip').onclick=end;$('#again').onclick=()=>go('intro');nx()}
+};
+function egg(){const e=DATA.easterEgg;modal(`<div class="row">${e.foto.map(f=>img(f)).join('')}</div><h3 style="margin-top:.8rem">${clean(e.judul,'Kamu nemu rahasianya 😆')}</h3><p>${clean(e.pesan,'💗')}</p>`)}
+// mulai
+const sc=P.get('scene');
+if(PV){const n=(JSON.stringify(DATA).match(/TODO:/g)||[]).length;$('#pv').style.display='block';$('#pv').textContent=`Preview • ${n} TODO`;go(sc&&init[sc]?sc:'call')}
+else go(new Date()>=new Date(DATA.unlock)?'call':'lock');
+</script>
+</body>
+</html>
