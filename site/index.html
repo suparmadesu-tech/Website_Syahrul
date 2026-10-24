@@ -123,7 +123,7 @@ button:focus-visible{outline:3px solid var(--lamp);outline-offset:3px}
 .row>*{flex:0 0 100%;scroll-snap-align:center;margin:0}
 .row img{width:100%}.row p{margin-top:.5rem}
 #mu{position:fixed;top:calc(.8rem + env(safe-area-inset-top));right:.8rem;z-index:40;width:2.8rem;height:2.8rem;border-radius:50%;border:1px solid var(--lamp);background:rgba(61,12,31,.8);color:var(--lamp);font-size:1.2rem;display:none;cursor:pointer}
-#dots{position:fixed;bottom:calc(.8rem + env(safe-area-inset-bottom));left:0;right:0;display:none;justify-content:center;gap:.5rem;z-index:30;pointer-events:none}
+#dots i{width:.28rem;height:.28rem;border-radius:50%;background:rgba(248,221,226,.3);transition:.4s}#dots i.a{background:var(--lamp);transform:scale(1.2)}
 #dots i{width:.5rem;height:.5rem;border-radius:50%;background:rgba(248,221,226,.3);transition:.4s}#dots i.a{background:var(--lamp);transform:scale(1.3)}
 #pv{position:fixed;bottom:2rem;left:.5rem;background:#c1121f;color:#fff;font:700 .75rem monospace;padding:.3rem .6rem;border-radius:.4rem;z-index:60;display:none}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
@@ -167,7 +167,7 @@ const celebrate=()=>{rain(['🎊','🌸','💗','✨','🎉']);fx(innerWidth/2,i
 function atmos(){const b=$('#bg'),C=['#7b1e3a','#9a2a4c','#b8405f','#5e1630'];
  for(let i=0;i<6;i++){const e=document.createElement('div');e.className='bk';const s=R(4,9);e.style.cssText=`width:${s}rem;height:${s}rem;left:${R(-5,95)}%;top:${R(0,90)}%;animation-duration:${R(5,9)}s;animation-delay:-${R(0,6)}s`;b.append(e)}
  for(let i=0;i<12;i++){const e=document.createElement('div');e.className='petal';const s=R(10,18);e.style.cssText=`width:${s}px;height:${s}px;left:${R(0,100)}%;background:${C[i%4]};--dx:${R(-90,90)}px;animation-duration:${R(10,18)}s;animation-delay:-${R(0,15)}s`;b.append(e)}
- document.addEventListener('pointerdown',e=>fx(e.clientX,e.clientY,['💗'],1,50,900,1.3))}
+ document.addEventListener('pointerdown',e=>fx(e.clientX,e.clientY,['💗'],1,90,1100,3.2))}
 // navigasi
 const ORDER=['call','intro','chapters','cats','gallery','tickets','letter'];
 function go(id){document.querySelectorAll('.scene').forEach(e=>e.classList.toggle('on',e.id===id));scrollTo(0,0);const k=ORDER.indexOf(id);
@@ -207,7 +207,7 @@ const init={
   b.textContent='Mulai cerita';b.onclick=step},
  cats(){const K=DATA.kucing;$('#kt').textContent=K.judul;$('#kp').textContent=K.petunjuk;$('#ks').textContent='';$('#kb').hidden=true;let f=0;const S=$('#spots');S.innerHTML='';nextBtn('#kb','gallery');
   K.daftar.forEach((c,i)=>{const b=document.createElement('button');b.className='spot';b.textContent=K.tempat[i];b.setAttribute('aria-label','Tempat sembunyi '+(i+1));
-   b.onclick=()=>{const r=b.getBoundingClientRect();vib([30,20,30]);fx(r.left+r.width/2,r.top+r.height/2,['🐾'],9,130,1500,1.4);
+   b.onclick=()=>{const r=b.getBoundingClientRect();vib([30,20,30]);fx(r.left+r.width/2,r.top+r.height/2,['🐾'],9,150,1700,3.4);
     modal(`${pol(c.foto,-3,c.nama)}<p style="margin-top:1rem">${c.pesan}</p><button class="btn" style="margin-top:1rem" onclick="$('#md').classList.remove('on')">Oke 🐱</button>`);
     if(!b.classList.contains('f')){b.classList.add('f');b.innerHTML=img(c.foto);f++;$('#ks').textContent=`${f} dari ${K.daftar.length} kucing ketemu`;if(f===K.daftar.length){$('#ks').textContent=K.selesai;$('#kb').hidden=false}}};S.append(b)})},
  gallery(){const G=DATA.galeri,B=$('#gal');$('#gt').textContent=G.judul;B.innerHTML='';nextBtn('#gb','tickets');let z=1;
