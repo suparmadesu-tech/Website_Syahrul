@@ -35,17 +35,26 @@ button:focus-visible{outline:3px solid var(--lamp);outline-offset:3px}
 .cd small{opacity:.75}
 .bub{background:var(--blush);color:var(--wine);border-radius:1.2rem 1.2rem 1.2rem .3rem;padding:1rem 1.2rem;text-align:left}
 /* telepon ala panggilan masuk */
-#call{max-width:none;width:100%;background:linear-gradient(#0b141a,#13232b);justify-content:space-between;padding-top:calc(3rem + env(safe-area-inset-top))}
-#call>div,#call>h2,#call>p{max-width:26rem}
-.av{width:8rem;height:8rem;border-radius:50%;background:var(--burg);display:grid;place-items:center;font-size:3.6rem}
+#call{max-width:none;width:100%;justify-content:space-between;padding:calc(2.2rem + env(safe-area-inset-top)) 1.25rem calc(2rem + env(safe-area-inset-bottom));background:linear-gradient(#2a0816,#4a1129 55%,#2a0816)}
+#call::before{content:'';position:absolute;inset:0;z-index:-1;opacity:.1;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='190' height='190' fill='none' stroke='%23e48da3' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M30 44C10 30 18 14 30 24c12-10 20 6 0 20z'/%3E%3Cpath d='M118 36l2-14 9 8M142 36l-2-14-9 8'/%3E%3Ccircle cx='130' cy='42' r='14'/%3E%3Ccircle cx='60' cy='122' r='4'/%3E%3Ccircle cx='60' cy='111' r='5'/%3E%3Ccircle cx='71' cy='122' r='5'/%3E%3Ccircle cx='60' cy='133' r='5'/%3E%3Ccircle cx='49' cy='122' r='5'/%3E%3Cpath d='M150 152v-30l18-4v28'/%3E%3Cellipse cx='145' cy='152' rx='6' ry='4'/%3E%3Cellipse cx='163' cy='146' rx='6' ry='4'/%3E%3Cpath d='M100 78l3 7 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z'/%3E%3Ccircle cx='24' cy='172' r='4'/%3E%3Ccircle cx='38' cy='166' r='3'/%3E%3Ccircle cx='46' cy='178' r='3'/%3E%3C/svg%3E") 0 0/190px}
+#call [hidden]{display:none!important}
+.ctop h2{font-size:2rem}
+.cst{display:flex;align-items:center;justify-content:center;gap:.4rem;font-size:.95rem;opacity:.9}
+.av{width:min(62vw,15rem,32dvh);aspect-ratio:1;border-radius:50%;overflow:hidden;background:var(--burg);border:4px solid var(--lamp)}
+.av img{width:100%;height:100%;object-fit:cover;display:block}
 .ringing{animation:ring 1.4s infinite}
-@keyframes ring{0%{box-shadow:0 0 0 0 rgba(63,191,106,.55)}100%{box-shadow:0 0 0 30px rgba(63,191,106,0)}}
-.acts{display:flex;gap:4rem;margin-bottom:2rem}.acts>div{display:flex;flex-direction:column;align-items:center;gap:.4rem}
-.acts button{width:4.2rem;height:4.2rem;border-radius:50%;border:0;font-size:1.6rem;color:#fff;cursor:pointer}
-.rj{background:#e5484d}.ans{background:#3fbf6a;animation:bob 1s infinite alternate}
-@keyframes bob{to{transform:translateY(-10px)}}
+@keyframes ring{0%{box-shadow:0 0 0 0 rgba(245,208,138,.5)}100%{box-shadow:0 0 0 30px rgba(245,208,138,0)}}
+#acts{width:100%;max-width:22rem}
+#hint{margin-bottom:.8rem;font-size:.9rem}.hb{animation:hb .5s}
+@keyframes hb{30%{transform:scale(1.12);color:var(--lamp)}}
+.sw{display:flex;justify-content:space-around}
+.swc{display:flex;flex-direction:column;align-items:center;gap:.4rem}
+.cv{color:var(--blush);line-height:1;animation:cv 1.3s infinite}
+@keyframes cv{0%{opacity:.1;transform:translateY(8px)}60%{opacity:1}100%{opacity:0;transform:translateY(-8px)}}
+.swb{width:4.4rem;height:4.4rem;border-radius:50%;border:0;display:grid;place-items:center;cursor:grab;touch-action:none;box-shadow:0 6px 16px rgba(0,0,0,.4)}
+.rj{background:#e5484d}.ans{background:#3fbf6a}
 .wv{display:flex;gap:.3rem;height:2.5rem;align-items:center}
-.wv i{width:.35rem;height:100%;background:#3fbf6a;border-radius:9px;animation:wv .8s ease-in-out infinite alternate}
+.wv i{width:.35rem;height:100%;background:var(--lamp);border-radius:9px;animation:wv .8s ease-in-out infinite alternate}
 .wv i:nth-child(odd){animation-delay:.25s}.wv i:nth-child(3n){animation-delay:.5s}
 @keyframes wv{from{transform:scaleY(.15)}to{transform:scaleY(1)}}
 .shk{animation:shk .5s}
@@ -125,9 +134,11 @@ button:focus-visible{outline:3px solid var(--lamp);outline-offset:3px}
 <main>
 <section class="scene" id="lock"><div class="card"><div style="font-size:3rem">🔒</div><h2>Sabar ya…</h2><p id="lp"></p><div class="cd" id="cd"></div></div></section>
 
-<section class="scene" id="call"><small class="sub">🔒 Panggilan suara</small><div><div class="av ringing" id="av">🐱</div><h2 id="cn" style="margin-top:1rem"></h2><p class="sub" id="cs">Panggilan suara masuk…</p></div>
+<section class="scene" id="call"><div class="ctop"><h2 id="cn"></h2><p class="cst"><svg viewBox="0 0 24 24" width="18" height="18"><path fill="#3fbf6a" d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z"/><path fill="#fff" transform="translate(4.5 4.5) scale(.62)" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg><span id="cs"></span></p><p class="sub" id="cd2"></p></div>
+<div class="av ringing" id="av"></div>
 <div class="wv" id="wv" hidden><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="bub" id="cb" hidden></div>
-<div class="acts" id="acts"><div><button class="rj" id="rej" aria-label="Tolak">✕</button><small>Tolak</small></div><div><button class="ans" id="ans" aria-label="Jawab">📞</button><small>Jawab</small></div></div><button class="btn" id="go1" hidden>Lanjut</button></section>
+<div id="acts"><p class="sub" id="hint">Geser tombol ke atas</p><div class="sw"><div class="swc"><span class="cv">︿</span><button class="swb rj" id="rej" aria-label="Tolak"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff" style="transform:rotate(135deg)"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></button><small>Tolak</small></div><div class="swc"><span class="cv">︿</span><button class="swb ans" id="ans" aria-label="Angkat"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff" style=""><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></button><small>Angkat</small></div></div></div>
+<button class="btn" id="go1" hidden>Lanjut</button></section>
 
 <section class="scene" id="intro"><p class="sub" id="ih">Tiup lilinnya dulu, ketuk kuenya 🎂</p><div class="cake" id="cake"><div class="cn"><i><b></b>2</i><i><b></b>1</i></div><div class="t1"></div><div class="t2"></div><div class="pl"></div></div><h1 id="it"></h1><p class="sub" id="is"></p><div class="bub" id="ip" hidden></div><button class="btn" id="ib" hidden>Mulai pelan-pelan</button></section>
 
@@ -167,17 +178,25 @@ function music(){if(!audio){audio=new Audio(DATA.musik.file);audio.loop=true;aud
 $('#mu').onclick=()=>{if(!audio)return;audio.paused?audio.play().catch(()=>{}):audio.pause();$('#mu').style.opacity=audio.paused?.5:1};
 const nextBtn=(id,to)=>$(id).onclick=()=>go(to);
 
+function swipe(btn,done,tap){let y0=0,dy=0,on=0;
+ btn.onpointerdown=e=>{btn.setPointerCapture(e.pointerId);y0=e.clientY;dy=0;on=1;btn.style.transition='none'};
+ btn.onpointermove=e=>{if(!on)return;dy=Math.min(0,e.clientY-y0);btn.style.transform=`translateY(${dy}px)`};
+ const up=()=>{if(!on)return;on=0;btn.style.transition='transform .35s cubic-bezier(.3,1.6,.5,1)';if(dy<-100){btn.style.transform='translateY(-130px)';done()}else{btn.style.transform='none';if(dy>-8)tap()}};
+ btn.onpointerup=up;btn.onpointercancel=up}
 const init={
  lock(){$('#lp').textContent=DATA.lockPesan;const T=new Date(DATA.unlock),v=[[864e5,'hari'],[36e5,'jam'],[6e4,'menit'],[1e3,'detik']];
   const t=()=>{const d=T-new Date();if(d<=0){go('call');return}let r=d;$('#cd').innerHTML=v.map(([m,l])=>{const n=Math.floor(r/m);r%=m;return`<div><b>${n}</b><small>${l}</small></div>`}).join('');setTimeout(t,1000)};t()},
- call(){const c=DATA.telepon;let tm;$('#cn').textContent=c.nama+c.emojiAwal;$('#cs').textContent='Panggilan suara masuk…';$('#av').classList.add('ringing');
-  ['#cb','#go1','#wv'].forEach(s=>$(s).hidden=true);$('#acts').hidden=false;
-  $('#rej').onclick=()=>{vib(80);$('#call').classList.add('shk');$('#cs').textContent='Nggak boleh ditolak 😤';setTimeout(()=>{$('#call').classList.remove('shk');$('#cs').textContent='Panggilan suara masuk…'},1400)};
-  $('#ans').onclick=()=>{music();vib([60,40,60,40,150]);$('#call').classList.add('shk');$('#acts').hidden=true;$('#av').classList.remove('ringing');
-   let s=0;const f=()=>{$('#cs').textContent=`${String(s/60|0).padStart(2,'0')}:${String(s++%60).padStart(2,'0')}`};f();tm=setInterval(f,1000);
-   $('#cn').textContent=c.nama+c.emojiAkhir;fx(innerWidth/2,innerHeight*.3,['💗','💕','💖'],22,170,1500,1.8);$('#wv').hidden=false;
-   setTimeout(()=>{$('#call').classList.remove('shk');$('#cb').textContent=c.teks;$('#cb').hidden=false;$('#go1').hidden=false},700)};
-  $('#go1').onclick=()=>{clearInterval(tm);go('intro')}},
+ call(){const c=DATA.telepon;let ans=0;clearInterval(window._ct);$('#call').classList.remove('shk');
+  $('#cn').textContent=c.nama+c.emojiAwal;$('#cs').textContent='Panggilan suara WhatsApp';$('#cd2').textContent=c.tanggal||'🎂 9 November 2005';
+  $('#av').innerHTML=img(c.foto||'assets/photos/kucing/cio.jpg');$('#av').classList.add('ringing');
+  ['#cb','#go1','#wv'].forEach(s=>$(s).hidden=true);$('#acts').hidden=false;$('#hint').textContent='Geser tombol ke atas';['#rej','#ans'].forEach(s=>$(s).style.transform='none');
+  const tap=()=>{const h=$('#hint');h.textContent='Geser ke atas, jangan cuma diketuk 😆';h.classList.remove('hb');void h.offsetWidth;h.classList.add('hb')};
+  swipe($('#rej'),()=>{vib(80);$('#call').classList.add('shk');$('#cs').textContent='Nggak boleh ditolak 😤';setTimeout(()=>{$('#call').classList.remove('shk');$('#cs').textContent='Panggilan suara WhatsApp';$('#rej').style.transform='none'},1400)},tap);
+  swipe($('#ans'),()=>{if(ans)return;ans=1;music();vib([60,40,60,40,150]);$('#call').classList.add('shk');$('#acts').hidden=true;$('#av').classList.remove('ringing');
+   let s=0;const f=()=>{$('#cs').textContent=`${String(s/60|0).padStart(2,'0')}:${String(s++%60).padStart(2,'0')}`};f();window._ct=setInterval(f,1000);
+   $('#cn').textContent=c.nama+c.emojiAkhir;const r=$('#av').getBoundingClientRect();fx(r.left+r.width/2,r.top+r.height/2,['💗','💕','💖'],24,190,1500,1.8);$('#wv').hidden=false;
+   setTimeout(()=>{$('#call').classList.remove('shk');$('#cb').textContent=c.teks;$('#cb').hidden=false;$('#go1').hidden=false},700)},tap);
+  $('#go1').onclick=()=>{clearInterval(window._ct);go('intro')}},
  intro(){const i=DATA.intro,cake=$('#cake');cake.classList.remove('off');$('#ih').hidden=false;cake.hidden=false;['#it','#is'].forEach(s=>$(s).textContent='');['#ip','#ib'].forEach(s=>$(s).hidden=true);let n=0,t0=0,done=0;
   cake.onclick=()=>{if(done)return;done=1;vib([40,30,80]);cake.classList.add('off');$('#ih').hidden=true;celebrate();if(audio){audio.volume=.85;setTimeout(()=>audio.volume=DATA.musik.volume,8000)}
    setTimeout(()=>typeText($('#it'),i.judul,55,()=>{$('#is').textContent=i.sub;$('#ip').textContent=i.pesan;$('#ip').hidden=false;$('#ib').hidden=false}),600)};
