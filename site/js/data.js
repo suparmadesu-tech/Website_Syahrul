@@ -21,7 +21,7 @@ const DATA = {
 
   // 6 chapter. Isi tanggal, teks (dan ganti judul bila perlu). Foto: assets/photos/chapter/01.jpg dst.
   chapters: [
-    { tanggal: "TODO: tanggal", judul: "PM Nomor di Pondok", teks: "TODO: cerita chapter 1", foto: "assets/photos/chapter/01.jpg" },
+    { tanggal: "2020", judul: "Awal ketemu", teks: "Kamu mau ngga jadi pacarku", foto: "assets/photos/chapter/01.jpg" },
     { tanggal: "16 Juni 2020", judul: "Jadian", teks: "TODO: cerita chapter 2", foto: "assets/photos/chapter/02.jpg" },
     { tanggal: "TODO: tanggal", judul: "Sleepcall", teks: "TODO: cerita chapter 3", foto: "assets/photos/chapter/03.jpg" },
     { tanggal: "TODO: tanggal", judul: "Kehujanan Bareng", teks: "TODO: cerita chapter 4", foto: "assets/photos/chapter/04.jpg" },
