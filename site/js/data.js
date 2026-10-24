@@ -8,6 +8,8 @@ const DATA = {
 
   telepon: {
     nama: "Sayangg", emojiAwal: "💢", emojiAkhir: "💗",
+        foto: "assets/photos/kucing/cio.jpg",
+        tanggal: "🎂9 November 2005🎂",
     teks: "Sleepcall kali ini beda. Jangan ketiduran dulu, ada yang mau kukasih 🐱"
   },
 
