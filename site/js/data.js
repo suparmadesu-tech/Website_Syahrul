@@ -34,13 +34,13 @@ const DATA = {
     petunjuk: "Ada 6 kucing yang lagi ngumpet. Ketuk tempat sembunyinya 🐱",
     selesai: "Semua kucing sudah ketemu 💗",
     tempat: ["🧺", "📦", "🛏️", "🪴", "🧸", "🪟"],
-    daftar: [
-      { nama: "Aheng", foto: "assets/photos/syahrul.jpg",aheng.jpg", pesan: "Maaf ya, aku banyak omong. Tapi kamu tetap dengerin sampai habis 🙈" },
-      { nama: "Nowy", foto: "assets/photos/syahrul.jpg",nowy.jpg", pesan: "Maaf juga sering bikin kamu marah 💢. Kamu tetap yang paling sabar." },
-      { nama: "Sasa", foto: "assets/photos/syahrul.jpg",sasa.jpg", pesan: "Kalau lagi badmood, boleh kok. Tapi jangan lama-lama ya, aku kangen senyummu." },
-      { nama: "Mili", foto: "assets/photos/syahrul.jpg",mili.jpg", pesan: "Jangan males makan ya, harus teratur. Aku nggak mau kamu kecapekan." },
-      { nama: "Caca", foto: "assets/photos/syahrul.jpg",caca.jpg", pesan: "Jangan buru-buru bukanya ya. Nikmatin pelan-pelan, satu per satu 🤍" },
-      { nama: "Cio", foto: "assets/photos/syahrul.jpg",cio.jpg", pesan: "Intinya, makasih udah ada di sini 🤍" }
+        daftar: [
+      { nama: "Aheng", foto: "assets/photos/kucing/aheng.jpg", pesan: "Maaf ya, aku banyak omong. Tapi kamu tetap dengerin sampai habis 🙈" },
+      { nama: "Nowy", foto: "assets/photos/kucing/nowy.jpg", pesan: "Maaf juga sering bikin kamu marah 💢. Kamu tetap yang paling sabar." },
+      { nama: "Sasa", foto: "assets/photos/kucing/sasa.jpg", pesan: "Kalau lagi badmood, boleh kok. Tapi jangan lama-lama ya, aku kangen senyummu." },
+      { nama: "Mili", foto: "assets/photos/kucing/mili.jpg", pesan: "Jangan males makan ya, harus teratur. Aku nggak mau kamu kecapekan." },
+      { nama: "Caca", foto: "assets/photos/kucing/caca.jpg", pesan: "Jangan buru-buru bukanya ya. Nikmatin pelan-pelan, satu per satu 🤍" },
+      { nama: "Cio", foto: "assets/photos/kucing/cio.jpg", pesan: "Intinya, makasih udah ada di sini 🤍" }
     ]
   },
 
