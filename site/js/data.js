@@ -20,13 +20,14 @@ const DATA = {
   },
 
   // 6 chapter. Isi tanggal, teks (dan ganti judul bila perlu). Foto: assets/photos/chapter/01.jpg dst.
-  chapters: [
-    { tanggal: "2020", judul: "Awal ketemu", teks: "Kamu mau ngga jadi pacarku", foto: "assets/photos/chapter/01.jpg" },
-    { tanggal: "16 Juni 2020", judul: "Jadian", teks: "TODO: cerita chapter 2", foto: "assets/photos/chapter/02.jpg" },
-    { tanggal: "TODO: tanggal", judul: "Sleepcall", teks: "TODO: cerita chapter 3", foto: "assets/photos/chapter/03.jpg" },
-    { tanggal: "TODO: tanggal", judul: "Kehujanan Bareng", teks: "TODO: cerita chapter 4", foto: "assets/photos/chapter/04.jpg" },
-    { tanggal: "TODO: tanggal", judul: "Motor Mogok", teks: "TODO: cerita chapter 5", foto: "assets/photos/chapter/05.jpg" },
-    { tanggal: "TODO: tanggal", judul: "Pantai", teks: "TODO: cerita chapter 6", foto: "assets/photos/chapter/06.jpg" }
+    chapters: [
+    { tanggal: "2020", judul: "Awal Jadian", teks: "Di teras kafe, aku nanya, “Kamu mau nggak jadi pacarku?” Kamu malah jawab nggak mau, katanya aku ngeselin. Aku takut banget ditolak wkwk, tapi ternyata itu awal kita jadian.", foto: "assets/photos/chapter/01.jpg" },
+    { tanggal: "2021", judul: "Awal Masuk Sekolah, Masa Korona", teks: "Kita masih di pondok, dan aku selalu nungguin kamu berangkat sekolah. Kamu pernah pesen, “Kalau ketemu jangan lupa nyapa ya.” Aku agak malu karena lagi sama anak-anak, pasti diteriakin kalau aku nyapa ceweku 🙈", foto: "assets/photos/chapter/02.jpg" },
+    { tanggal: "2022", judul: "Masa Mau Lulus MTs", teks: "Aku nungguin kamu maju munaqosah, dan kamu lancar banget. Dari situ aku yakin aku nggak salah pilih.", foto: "assets/photos/chapter/03.jpg" },
+    { tanggal: "2023", judul: "Bukber Berdua", teks: "Kita bukber berdua di meja makan rumahmu, terus lanjut sholat di sana. Ibumu bilang, “Makan di meja makan sini ya, nak.” Aku deg-degan nggak berhenti, takut campur senang. Itu pertama kalinya aku buka puasa di rumahmu.", foto: "assets/photos/chapter/04.jpg" },
+    { tanggal: "2024", judul: "Kenangan di Sekolah", teks: "Waktunya cuma sebentar sebelum guru datang, jadi aku nyuruh kamu cepet-cepet ngomong. Aku lupa kamu bilang apa, tapi aku ingat panik dan deg-degannya. Sekarang malah jadi pengin sekolah lagi wkwk.", foto: "assets/photos/chapter/05.jpg" },
+    { tanggal: "2025", judul: "Mantai Bareng", teks: "Ini pertama kalinya kita mantai bareng, di Pantai Tanjung Penyu, Malang. Punggungku pegel banget, “jek suwe ta sampe?” Takut campur seneng, tapi nggak apa-apa buat pengalaman. Lain kali pengin ngulang, tapi bawa mobil aja wkwk.", foto: "assets/photos/chapter/06.jpg" },
+    { tanggal: "2026", judul: "Charger Energy", teks: "Di kafe Trawas, aku bilang, “Sayang, perutku sakit,” terus aku kentut. Maaf ya kentutnya bunyi. Tapi kamu ketawa, dan itu cukup jadi charger buatku. Malunya setengah mati sih, nggak mau ngulangin lagi wkwk.", foto: "assets/photos/chapter/07.jpg" }
   ],
 
   kucing: {
@@ -44,9 +45,19 @@ const DATA = {
     ]
   },
 
-  galeri: {
+    galeri: {
     judul: "Galeri Kita",
-    photos: [1, 2, 3, 4, 5, 6, 7, 8, 9].map(n => ({ src: `assets/photos/gallery/0${n}.jpg`, caption: `TODO: caption foto ${n}` }))
+    photos: [
+      { src: "assets/photos/gallery/01.jpg", caption: "Kita berdua, dan kamu masih yang paling cantik di fotoku 🤍" },
+      { src: "assets/photos/gallery/02.jpg", caption: "Senyum yang bikin aku lupa capek." },
+      { src: "assets/photos/gallery/03.jpg", caption: "Kita versi nggak sempat siap-siap, tapi tetap bahagia." },
+      { src: "assets/photos/gallery/04.jpg", caption: "Satu foto, seribu kenangan, dan sejuta kangen." },
+      { src: "assets/photos/gallery/05.jpg", caption: "Kamu yang lagi ketawa. Ini favoritku." },
+      { src: "assets/photos/gallery/06.jpg", caption: "Hari biasa, tapi bareng kamu jadi spesial." },
+      { src: "assets/photos/gallery/07.jpg", caption: "Kalau kangen, aku buka foto ini." },
+      { src: "assets/photos/gallery/08.jpg", caption: "Yang penting kita masih bareng sampai sekarang." },
+      { src: "assets/photos/gallery/09.jpg", caption: "Foto lain mungkin hilang, tapi yang ini kusimpan terus." }
+    ]
   },
 
   tiket: {
@@ -77,8 +88,8 @@ const DATA = {
 
   // Easter egg: ketuk judul di halaman intro 5 kali. Foto: assets/photos/egg/1.jpg dst.
   easterEgg: {
-    judul: "TODO: judul easter egg",
-    pesan: "TODO: pesan rahasia",
+    judul: "Kamu nemu rahasianya 😆",
+    pesan: "Ini bukti aku nyimpen foto-foto lucumu. Manyun pun tetap kusayang, tapi senyum tetap juara 🤍",
     foto: ["assets/photos/egg/1.jpg", "assets/photos/egg/2.jpg", "assets/photos/egg/3.jpg"]
   }
 };
