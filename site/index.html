@@ -227,7 +227,7 @@ const init={
  chapters(){const L=DATA.chapters.filter(c=>PV||!(c.teks||'').startsWith('TODO:')),b=$('#cbtn'),r=take('chapters');let k=0;$('#chat').innerHTML='';$('#chapters').classList.add('pre');if(!L.length){go('cats');return}
   const html=(c,n)=>`<small>${clean(c.tanggal)}</small><h3>${c.judul}</h3><p>${clean(c.teks)}</p>${c.foto?pol(c.foto,n%2?3:-3):''}`;
   const lab=()=>b.textContent=k>=L.length?'Lanjut 💕':'Lanjut cerita';
-  const step=()=>{if(k>=L.length){go('cats');return}const c=L[k],d=document.createElement('div');d.className='msg';d.innerHTML='<small>Syahrul sedang mengetik…</small><div class="d3"><i></i><i></i><i></i></div>';$('#chat').append(d);b.disabled=true;d.scrollIntoView({behavior:'smooth',block:'center'});
+  const step=()=>{if(k>=L.length){go('cats');return}const c=L[k],d=document.createElement('div');d.className='msg';d.innerHTML='<small>Sayangg💢 sedang mengetik…</small><div class="d3"><i></i><i></i><i></i></div>';$('#chat').append(d);b.disabled=true;d.scrollIntoView({behavior:'smooth',block:'center'});
    setTimeout(()=>{d.innerHTML=html(c,k);d.style.animation='pop .45s';k++;sv({ch:k});b.disabled=false;lab();setTimeout(()=>d.scrollIntoView({behavior:'smooth',block:'center'}),150)},1300)};
   if(r&&r.ch>0){$('#chapters').classList.remove('pre');for(;k<Math.min(r.ch,L.length);k++){const d=document.createElement('div');d.className='msg';d.innerHTML=html(L[k],k);$('#chat').append(d)}lab();b.onclick=step;return}
   b.textContent='Mulai cerita';b.onclick=()=>{lift($('#chapters'),[$('#chapters h2'),b]);b.onclick=step;step()}},
